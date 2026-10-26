@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>آسف يا قلبي</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff5f6;--bg2:#ffe3e8;--card:#ffffffcc;--ink:#4a1626;--soft:#8a4a5c;--rose:#d6336c;--rose2:#ff6b9a;--gold:#c9973f;--line:#f3c3cf;--bubble-me:#d6336c;--bubble-ai:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1a0a12;--bg2:#2d1020;--card:#2a1220cc;--ink:#ffe9ee;--soft:#e7aebd;--rose:#ff5c8a;--rose2:#ff8fb0;--gold:#e6b862;--line:#4d2234;--bubble-me:#c2255c;--bubble-ai:#3a1829}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#1a0a12;--bg2:#2d1020;--card:#2a1220cc;--ink:#ffe9ee;--soft:#e7aebd;--rose:#ff5c8a;--rose2:#ff8fb0;--gold:#e6b862;--line:#4d2234;--bubble-me:#c2255c;--bubble-ai:#3a1829}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Tajawal',Tahoma,sans-serif;color:var(--ink);background:var(--bg);background-image:radial-gradient(circle at 15% 10%,var(--bg2),transparent 45%),radial-gradient(circle at 85% 60%,var(--bg2),transparent 50%);overflow-x:hidden;line-height:1.9}
+h1,h2,.script{font-family:'Aref Ruqaa','Amiri',serif}
+section{max-width:860px;margin:0 auto;padding:70px 20px}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.hero h1{font-size:clamp(2.6rem,9vw,5rem);margin:0;color:var(--rose);line-height:1.3;text-shadow:0 4px 30px color-mix(in srgb,var(--rose) 30%,transparent)}
+.hero p{font-size:1.2rem;color:var(--soft);max-width:520px;margin:14px 0 28px}
+.beat{font-size:3.2rem;display:inline-block;animation:beat 1.4s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+.btn{border:0;cursor:pointer;font:inherit;font-weight:700;color:#fff;padding:13px 32px;border-radius:50px;background:linear-gradient(135deg,var(--rose),var(--rose2));box-shadow:0 10px 28px color-mix(in srgb,var(--rose) 40%,transparent);transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+h2{font-size:2.2rem;text-align:center;color:var(--rose);margin:0 0 8px}
+.sub{text-align:center;color:var(--soft);margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;padding:22px;text-align:center;opacity:0;transform:translateY(30px);transition:all .8s}
+.card.in{opacity:1;transform:none}
+.card b{display:block;font-size:2rem}
+.card p{margin:6px 0 0;color:var(--soft)}
+.letter{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:34px 28px;font-size:1.2rem;min-height:260px;white-space:pre-wrap;box-shadow:0 20px 50px color-mix(in srgb,var(--rose) 12%,transparent)}
+.center{text-align:center;margin-top:22px}
+.chat{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 20px 50px color-mix(in srgb,var(--rose) 14%,transparent)}
+.chead{padding:14px 20px;background:linear-gradient(135deg,var(--rose),var(--rose2));color:#fff;font-weight:700;display:flex;gap:10px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;background:#7CFFB2;box-shadow:0 0 8px #7CFFB2}
+#log{height:380px;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:84%;padding:11px 16px;border-radius:20px;white-space:pre-wrap;animation:pop .3s}
+@keyframes pop{from{opacity:0;transform:scale(.92)}}
+.me{align-self:flex-start;background:var(--bubble-me);color:#fff;border-bottom-right-radius:6px}
+.ai{align-self:flex-end;background:var(--bubble-ai);border:1px solid var(--line);border-bottom-left-radius:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--soft);font:inherit;font-size:.9rem;padding:6px 14px;border-radius:30px;cursor:pointer}
+.chip:hover{background:var(--line)}
+.row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.row input{flex:1;min-width:0;font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:30px;padding:11px 18px;outline:0}
+.row input:focus{border-color:var(--rose)}
+.row .btn{padding:11px 22px}
+footer{text-align:center;padding:40px 20px 60px;color:var(--soft)}
+.fh{position:fixed;bottom:-40px;pointer-events:none;z-index:0;animation:fly linear forwards}
+@keyframes fly{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+section,footer{position:relative;z-index:1}
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="beat">❤️</div>
+  <h1 id="title">آسف يا قلبي</h1>
+  <p>عملتلك الموقع ده بإيدي، لأن الكلام لوحده مش كفاية… وعايزك تدّيني فرصة أقولك كل اللي جوايا.</p>
+  <button class="btn" onclick="document.getElementById('letter').scrollIntoView()">ابدأي من هنا 💌</button>
+</section>
+
+<section id="letter">
+  <h2>رسالة من قلبي</h2>
+  <p class="sub">اضغطي على الزرار واقري بهدوء</p>
+  <div class="letter script" id="lt"></div>
+  <div class="center"><button class="btn" id="open">افتحي الرسالة 💌</button></div>
+</section>
+
+<section>
+  <h2>بحبك علشان…</h2>
+  <p class="sub">شوية من ألف سبب</p>
+  <div class="grid" id="reasons"></div>
+</section>
+
+<section id="ask">
+  <h2>اسأليني أي حاجة عن عبدالرحمن</h2>
+  <p class="sub">أنا مساعد قلبه، وهرد عليكي بالنيابة عنه 💘</p>
+  <div class="chat">
+    <div class="chead"><span class="dot"></span> مساعد عبدالرحمن الرومانسي</div>
+    <div id="log"></div>
+    <div class="chips" id="chips"></div>
+    <div class="row">
+      <input id="q" placeholder="اسأليني أي حاجة…" autocomplete="off">
+      <button class="btn" id="send">إرسال</button>
+    </div>
+  </div>
+</section>
+
+<footer><div class="script" style="font-size:1.6rem;color:var(--rose)">سامحيني يا أغلى ما عندي ♥</div>من عبدالرحمن، اللي قلبه ليكي لوحدك</footer>
+
+<script>
+// ✏️ عدّل هنا: اسمها (اختياري) ورسالتك وأسبابك
+const HER = "حبيبتي";
+const LETTER = `إلى ${HER}…
+
+أنا آسف.
+مش آسف بالكلام بس، أنا آسف من قلبي.
+
+عارف إني غلطت، وعارف إن زعلك وجعني أكتر ما وجعك.
+بس عايزك تعرفي إن مفيش حاجة في الدنيا تساوي ضحكتك،
+ومفيش يوم بيعدّي حلو من غير صوتك.
+
+سامحيني… وخليني أرجعلك أحسن من الأول.
+
+بحبك،
+عبدالرحمن ♥`;
+const REASONS = [
+ ["🌹","ضحكتك","بتنوّر أي مكان أكون فيه"],
+ ["🌙","حنيتك","بتحسسني إن الدنيا أمان"],
+ ["✨","وجودك","هو أحلى حاجة حصلتلي"],
+ ["💫","عيونك","فيها كل الكلام اللي مبيتقالش"],
+ ["🕊️","قلبك","أنقى قلب قابلته في حياتي"],
+ ["🍯","كلامك","بيحلّي أصعب يوم عندي"]
+];
+const CHIPS = ["هو عبدالرحمن بيحبني؟","بيفتكر مين أكتر حاجة؟","هيزعلني تاني؟","قولي حاجة حلوة"];
+
+const SYS = `أنت "مساعد قلب عبدالرحمن"، موقع اعتذار رومانسي صنعه عبدالرحمن لحبيبته. بتتكلم بالنيابة عنه باللهجة المصرية الدافئة. هي بتسألك عن عبدالرحمن وكأنها بتكلمه، فردّ دايمًا بأسلوب رومانسي متغزّل فيها، بتتكلم عنه أحيانًا بصيغة الغائب (مثال: "بيحبك؟ بيحبك؟ ده بيعشقك ومبيحبش حاجة في الدنيا قدك") وأحيانًا تنطق بلسانه. القواعد: ردود قصيرة من 2 إلى 4 جمل، فيها إيموجي قلوب بشكل خفيف، كل رد مختلف ومش مكرر، ودايمًا فيه إحساس بالاعتذار والندم والوعد إنه يسعدها. متخترعش تفاصيل حقيقية عن حياتهم (أماكن أو تواريخ أو أسماء)، ركّز على المشاعر. لو سألت عن حاجة مش رومانسية، رجّعها بلُطف لحب عبدالرحمن ليها. متكسرش الشخصية ومتذكرش إنك ذكاء اصطناعي إلا لو سألت صراحةً.`;
+const FALLBACK = [
+ "بيحبك؟ ده بيعشقك، ومبيحبش حاجة في الدنيا قدك 💗 وأكتر حاجة بتوجعه إنه زعّلك.",
+ "عبدالرحمن بيقولك: أنتِ الأمان اللي كنت بدوّر عليه، وهفضل أصلّح كل حاجة علشانك ❤️",
+ "كل يوم من غيرك عنده ناقص، وكل ضحكة منك بتساوي عنده الدنيا 🌹"
+];
+
+// ----- hearts
+const heartsEl = ["❤️","💗","💖","💕","🌹"];
+function heart(){
+  const h=document.createElement('div');h.className='fh';
+  h.textContent=heartsEl[Math.floor(Math.random()*heartsEl.length)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(14+Math.random()*22)+'px';
+  h.style.opacity=.3+Math.random()*.5;
+  h.style.animationDuration=(7+Math.random()*7)+'s';
+  document.body.appendChild(h);setTimeout(()=>h.remove(),15000);
+}
+setInterval(heart,900);
+
+// ----- reasons
+const rg=document.getElementById('reasons');
+REASONS.forEach(([e,t,d])=>{const c=document.createElement('div');c.className='card';
+ c.innerHTML=`<b>${e}</b><h3 class="script" style="margin:4px 0;color:var(--rose);font-size:1.5rem">${t}</h3><p>${d}</p>`;rg.appendChild(c)});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.2});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+
+// ----- letter typewriter
+let typing=false;
+document.getElementById('open').onclick=function(){
+  if(typing)return;typing=true;this.style.display='none';
+  const el=document.getElementById('lt');el.textContent='';let i=0;
+  (function t(){ if(i<LETTER.length){el.textContent+=LETTER[i++];setTimeout(t,45)} else {for(let k=0;k<12;k++)setTimeout(heart,k*120)} })();
+};
+
+// ----- chat
+const log=document.getElementById('log'),q=document.getElementById('q'),sendBtn=document.getElementById('send');
+const history=[];let sample=null,busy=false,fb=0;
+(async()=>{try{sample=await window.claude?.use("sample")}catch(e){sample=null}})();
+
+function add(cls,text){const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+add('ai',`أهلًا يا ${HER} 💗 اسأليني أي حاجة عن عبدالرحمن، وأوعدك أجاوبك من قلبه.`);
+const chips=document.getElementById('chips');
+CHIPS.forEach(c=>{const b=document.createElement('button');b.className='chip';b.textContent=c;b.onclick=()=>ask(c);chips.appendChild(b)});
+
+async function ask(text){
+  text=(text||q.value).trim();if(!text||busy)return;
+  busy=true;q.value='';add('me',text);history.push({role:'user',content:text});
+  const out=add('ai','…');
+  try{
+    if(!sample)throw 0;
+    const msgs=history.map((m,i)=>i===0?{role:'user',content:SYS+"\n\nسؤالها:\n"+m.content}:m);
+    const r=await sample(msgs,{cache:false,modelTier:'quick',onText:({text})=>{out.textContent=text;log.scrollTop=log.scrollHeight}});
+    out.textContent=r.text;history.push({role:'assistant',content:r.text});
+  }catch(e){
+    const r=FALLBACK[fb++%FALLBACK.length];out.textContent=r;history.push({role:'assistant',content:r});
+  }
+  for(let k=0;k<4;k++)setTimeout(heart,k*150);
+  busy=false;
+}
+sendBtn.onclick=()=>ask();
+q.addEventListener('keydown',e=>{if(e.key==='Enter')ask()});
+</script>
+</body>
+</html>
